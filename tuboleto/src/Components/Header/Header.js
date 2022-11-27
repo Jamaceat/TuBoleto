@@ -16,6 +16,7 @@ const actualStyle = {
 		paddingBottom: "3rem",
 		borderRadius: ".25rem .25rem 0 0",
 	},
+	ticketPunch: {borderRight: ".15rem dashed #0874cc", marginRight: "1rem"},
 }
 
 export default function Header() {
@@ -30,6 +31,18 @@ export default function Header() {
 					maxHeight: "5rem",
 				}}
 			>
+				<Paper
+					sx={{
+						height: "1rem",
+						width: "1rem",
+						backgroundColor: "#0874cc",
+						borderRadius: "50%",
+						marginRight: ".25rem",
+						position: "relative",
+						top: "1.9rem",
+					}}
+				></Paper>
+				<Box sx={actualStyle.ticketPunch}></Box>
 				<h1 className={styles.titulo}>Tuboleto</h1>
 				<Box
 					sx={{

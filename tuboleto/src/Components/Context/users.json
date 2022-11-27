@@ -1,4 +1,16 @@
 [
-	{"user": "jamacea", "password": "1235", "type": "Seller"},
-	{"user": "saroa", "password": "3215", "type": "Buyer"}
+	{
+		"user": "jamacea",
+		"password": "1235",
+		"type": "Seller",
+		"currency": 0,
+		"events": []
+	},
+	{
+		"user": "saroa",
+		"password": "3215",
+		"type": "Buyer",
+		"currency": 0,
+		"events": []
+	}
 ]

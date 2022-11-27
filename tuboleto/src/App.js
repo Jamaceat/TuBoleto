@@ -2,6 +2,7 @@ import styles from "./App.module.css"
 import Header from "./Components/Header/Header"
 import {useContext} from "react"
 import {AllData} from "./Components/Context/ContextProvider"
+import Events from "./Components/Events/Events"
 
 function App() {
 	console.log(styles.holaa)
@@ -10,6 +11,8 @@ function App() {
 	return (
 		<>
 			<Header />
+
+			<Events />
 
 			<div>
 				{userList !== undefined &&
