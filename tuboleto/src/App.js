@@ -15,7 +15,7 @@ function App() {
 				{userList !== undefined &&
 					userList.map((x, i) => {
 						return (
-							<div className={styles.contenedorPrueba} id={i}>
+							<div className={styles.contenedorPrueba} key={i}>
 								<p>user: {x.user}</p>
 								<p>password: {x.password}</p>
 								<p>tipo: {x.type}</p>

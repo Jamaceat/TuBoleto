@@ -1,0 +1,35 @@
+@font-face {
+	font-family: "logofuente";
+	src: url("../../Fonts/Logo/LibreBarcode39Text-Regular.ttf");
+}
+
+.container {
+	min-height: 6rem;
+
+	background-color: #0874cc;
+	padding: 1rem 0 1rem 1rem;
+}
+
+.titulo {
+	font-size: 2rem;
+	/* background-color: white; */
+	/* border-radius: 1rem 0 0 1rem; */
+	flex-grow: 1;
+	font-family: "logofuente";
+}
+
+.menu {
+	padding: 0 0 0 1rem;
+
+	display: flex;
+	background-color: white;
+}
+
+.item {
+	padding: 1rem 0;
+}
+
+.item:hover {
+	background-color: #0874cc;
+	height: 100%;
+}
