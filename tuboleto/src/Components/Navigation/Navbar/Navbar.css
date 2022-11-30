@@ -1,0 +1,11 @@
+@font-face {
+	font-family: "logofuente";
+	src: url("../../../Fonts/Logo/LibreBarcode39Text-Regular.ttf");
+}
+
+.titulo {
+	font-size: 2rem;
+	flex-grow: 1;
+	font-family: "logofuente";
+	color: black;
+}
