@@ -1,6 +1,6 @@
 import React from "react"
 import styles from "./Header.module.css"
-import {Typography, Box, Paper} from "@mui/material"
+import {Box, Paper} from "@mui/material"
 import Navbar from "../Navigation/Navbar"
 
 const actualStyle = {
@@ -30,7 +30,7 @@ export default function Header() {
 						top: "1.9rem",
 					}}
 				></Paper>
-				<Navbar/>
+				<Navbar />
 			</Paper>
 		</Box>
 	)

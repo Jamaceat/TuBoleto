@@ -1,33 +1,30 @@
-import React from "react";
-import Header from "../../Components/Header";
-import Events from "../../Components/Events";
+import React from "react"
+import Events from "../../Components/Events"
 import {useContext} from "react"
 import {AllData} from "../../Components/Context/ContextProvider"
 import styles from "./Home.module.css"
 
 export default function Home() {
-    console.log(styles.holaa)
+	console.log(styles.holaa)
 	const {userList} = useContext(AllData)
 	console.log(userList, "esta es la lista")
 
-    return (
-        <>
-            <Header />
+	return (
+		<>
+			<Events />
 
-            <Events />
-
-            <div>
-                {userList !== undefined &&
-                    userList.map((x, i) => {
-                        return (
-                            <div className={styles.contenedorPrueba} key={i}>
-                                <p>user: {x.user}</p>
-                                <p>password: {x.password}</p>
-                                <p>tipo: {x.type}</p>
-                            </div>
-                        )
-                    })}
-            </div>
-        </>
-    )
+			<div>
+				{userList !== undefined &&
+					userList.map((x, i) => {
+						return (
+							<div className={styles.contenedorPrueba} key={i}>
+								<p>name: {x.name}</p>
+								<p>password: {x.password}</p>
+								<p>tipo: {x.type}</p>
+							</div>
+						)
+					})}
+			</div>
+		</>
+	)
 }

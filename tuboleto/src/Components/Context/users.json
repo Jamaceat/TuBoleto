@@ -1,16 +1,17 @@
 [
 	{
-		"user": "jamacea",
+		"name": "johan Mendez",
 		"password": "1235",
+		"cc": "1002233441",
+		"email": 0,
 		"type": "Seller",
-		"currency": 0,
 		"events": []
 	},
 	{
-		"user": "saroa",
-		"password": "3215",
-		"type": "Buyer",
-		"currency": 0,
-		"events": []
+		"name": "Sergio Roa",
+		"password": "1234",
+		"cc": "1002233442",
+		"email": 0,
+		"type": "Buyer"
 	}
 ]
