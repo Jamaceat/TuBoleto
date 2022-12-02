@@ -79,7 +79,7 @@ export default function Navbar() {
 			)}
 			{userList.sesion?.email !== undefined && (
 				<Box display={"flex"} alignItems={"baseline"}>
-					<Box sx={{position: "relative", width: "10rem"}}>
+					<Box sx={{position: "relative", width: "17rem"}}>
 						<Typography
 							position={"absolute"}
 							variant="h5"

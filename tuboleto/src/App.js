@@ -6,6 +6,7 @@ import Login from "./pages/Login"
 import Register from "./pages/Register"
 import EventManager from "./pages/EventManager"
 import ManageAccount from "./Components/ManageAccount/"
+import Crud from "./Components/CRUD"
 
 function App() {
 	return (
@@ -17,6 +18,7 @@ function App() {
 				<Route path="/register" element={<Register />} />
 				<Route path="/evt_manager" element={<EventManager />} />
 				<Route path="/user" element={<ManageAccount />} />
+				<Route path="/user/crud" element={<Crud />} />
 			</Routes>
 		</Router>
 	)
