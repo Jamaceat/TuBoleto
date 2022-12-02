@@ -1,7 +1,8 @@
-import React from "react"
+import React, {useContext} from "react"
 import {Link as RouterLink} from "react-router-dom"
 import {Box, Link, Typography} from "@mui/material"
 import styles from "./Navbar.css"
+import {AllData} from "../../Context/ContextProvider"
 
 const actualStyle = {
 	item: {
@@ -29,6 +30,8 @@ const actualStyle = {
 }
 
 export default function Navbar() {
+	const {UpdateList} = useContext(AllData)
+
 	return (
 		<>
 			<Box sx={actualStyle.ticketPunch}></Box>
@@ -37,36 +40,41 @@ export default function Navbar() {
 					Tuboleto
 				</Link>
 			</Typography>
-			<Box
-				sx={{
-					...actualStyle.item,
-					...actualStyle.backgroundWithBeforeEffect,
-				}}
-			>
-				<Link
-					variant="body1"
-					component={RouterLink}
-					to={"/login"}
-					sx={actualStyle.links}
-				>
-					Ingresa
-				</Link>
-			</Box>
-			<Box
-				sx={{
-					...actualStyle.item,
-					...actualStyle.backgroundWithBeforeEffect,
-				}}
-			>
-				<Link
-					variant="body1"
-					component={RouterLink}
-					to={"/register"}
-					sx={actualStyle.links}
-				>
-					Registrate
-				</Link>
-			</Box>
+
+			{UpdateList.sesion?.email === undefined && (
+				<>
+					<Box
+						sx={{
+							...actualStyle.item,
+							...actualStyle.backgroundWithBeforeEffect,
+						}}
+					>
+						<Link
+							variant="body1"
+							component={RouterLink}
+							to={"/login"}
+							sx={actualStyle.links}
+						>
+							Ingresa
+						</Link>
+					</Box>
+					<Box
+						sx={{
+							...actualStyle.item,
+							...actualStyle.backgroundWithBeforeEffect,
+						}}
+					>
+						<Link
+							variant="body1"
+							component={RouterLink}
+							to={"/register"}
+							sx={actualStyle.links}
+						>
+							Registrate
+						</Link>
+					</Box>
+				</>
+			)}
 		</>
 	)
 }
