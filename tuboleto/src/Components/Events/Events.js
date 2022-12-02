@@ -8,7 +8,7 @@ export default function Events() {
 			<Box
 				sx={{
 					display: "grid",
-					gridTemplateColumns: " repeat(auto-fill,minmax(16rem,1fr))",
+					gridTemplateColumns: " repeat(auto-fill,minmax(20rem,1fr))",
 				}}
 			>
 				<EventCard />

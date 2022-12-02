@@ -35,8 +35,14 @@ export default function DataProvider({children}) {
 
 	const [userList, UpdateList] = useReducer(userManagement, initUserData)
 
+	const verify = (email, password) => {
+		return [...userList].some(
+			(x) => x.email === email && x.password === password
+		)
+	}
+
 	return (
-		<AllData.Provider value={{userList, UpdateList}}>
+		<AllData.Provider value={{userList, UpdateList, verify}}>
 			{children}
 		</AllData.Provider>
 	)

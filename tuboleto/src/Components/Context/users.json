@@ -3,7 +3,7 @@
 		"name": "johan Mendez",
 		"password": "1235",
 		"cc": "1002233441",
-		"email": 0,
+		"email": "johanoriginalplus@gmail.com",
 		"type": "Seller",
 		"events": []
 	},
@@ -11,7 +11,7 @@
 		"name": "Sergio Roa",
 		"password": "1234",
 		"cc": "1002233442",
-		"email": 0,
+		"email": "saroa@uninorte.edu.co",
 		"type": "Buyer"
 	}
 ]
