@@ -1,14 +1,17 @@
-import {createContext, useReducer} from "react"
+import {createContext, useReducer, useState} from "react"
 import users from "./users.json"
 
 export const AllData = createContext()
 
-if (window.localStorage.getItem("users") === null) {
-	window.localStorage.setItem("users", JSON.stringify(users))
+if (window.localStorage.getItem("manage") === null) {
+	window.localStorage.setItem(
+		"manage",
+		JSON.stringify({sesion: {}, events: [], users: [...users]})
+	)
 }
 
 export default function DataProvider({children}) {
-	const initUserData = JSON.parse(window.localStorage.getItem("users"))
+	const initUserData = JSON.parse(window.localStorage.getItem("manage"))
 
 	const userManagement = (state, action) => {
 		switch (action.do) {
@@ -16,14 +19,20 @@ export default function DataProvider({children}) {
 				const {payload} = action
 				const {name, password, cc, email, type} = payload
 				if (type === "Seller") {
-					let newState = [
+					let newState = {
 						...state,
-						{name, password, cc, email, type, events: []},
-					]
+						users: [
+							...state.users,
+							{name, password, cc, email, type, events: []},
+						],
+					}
 					window.localStorage.setItem("users", JSON.stringify(newState))
 					return newState
 				} else {
-					let newState = [...state, {name, password, cc, email, type}]
+					let newState = {
+						...state,
+						users: [...state.users, {name, password, cc, email, type}],
+					}
 					window.localStorage.setItem("users", JSON.stringify(newState))
 					return newState
 				}

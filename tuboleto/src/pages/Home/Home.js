@@ -16,7 +16,7 @@ export default function Home() {
 
 			<div>
 				{userList !== undefined &&
-					userList.map((x, i) => {
+					userList.users.map((x, i) => {
 						return (
 							<div className={styles.contenedorPrueba} key={i}>
 								<p>name: {x.name}</p>
