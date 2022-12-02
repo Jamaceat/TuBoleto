@@ -14,17 +14,23 @@ import {AllData} from "../../Components/Context/ContextProvider"
 import {useNavigate} from "react-router-dom"
 export default function Login() {
 	const Navigate = useNavigate()
-	const {verify} = useContext(AllData)
+	const {userList, UpdateList, verify} = useContext(AllData)
 	const campos = useRef()
 	const [correcto, setCorrecto] = useState(false)
 
 	const deleteFields = () => {
-		const valores = [...campos?.current.querySelectorAll("input")].forEach(
-			(x) => {
-				x.value = ""
-			}
-		)
+		;[...campos?.current.querySelectorAll("input")].forEach((x) => {
+			x.value = ""
+		})
 		setCorrecto(true)
+	}
+
+	const entrando = (email, password) => {
+		const usuarioSesion = [...userList.users].filter(
+			(x) => x.email === email && x.password === password
+		)
+		UpdateList({do: "SESION", payload: {usuario: {...usuarioSesion[0]}}})
+		Navigate("/")
 	}
 
 	const getCampos = () => {
@@ -33,7 +39,8 @@ export default function Login() {
 		)
 		const [email, password] = valores
 		const dentro = verify(email, password)
-		dentro ? Navigate("/") : deleteFields()
+		console.log("Estas adentro?", dentro)
+		dentro ? entrando(email, password) : deleteFields()
 		setTimeout(() => {
 			setCorrecto(false)
 		}, 3000)

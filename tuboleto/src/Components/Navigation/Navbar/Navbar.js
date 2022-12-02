@@ -1,8 +1,9 @@
 import React, {useContext} from "react"
 import {Link as RouterLink} from "react-router-dom"
-import {Box, Link, Typography} from "@mui/material"
+import {Box, Button, Link, Typography} from "@mui/material"
 import styles from "./Navbar.css"
 import {AllData} from "../../Context/ContextProvider"
+import {useNavigate} from "react-router-dom"
 
 const actualStyle = {
 	item: {
@@ -30,7 +31,8 @@ const actualStyle = {
 }
 
 export default function Navbar() {
-	const {UpdateList} = useContext(AllData)
+	const navigate = useNavigate()
+	const {userList, UpdateList} = useContext(AllData)
 
 	return (
 		<>
@@ -41,7 +43,7 @@ export default function Navbar() {
 				</Link>
 			</Typography>
 
-			{UpdateList.sesion?.email === undefined && (
+			{userList.sesion?.email === undefined && (
 				<>
 					<Box
 						sx={{
@@ -74,6 +76,57 @@ export default function Navbar() {
 						</Link>
 					</Box>
 				</>
+			)}
+			{userList.sesion?.email !== undefined && (
+				<Box display={"flex"} alignItems={"baseline"}>
+					<Box sx={{position: "relative", width: "10rem"}}>
+						<Typography
+							position={"absolute"}
+							variant="h5"
+							color="gray"
+							marginRight={".25rem"}
+							sx={{bottom: "-.8rem"}}
+						>
+							Hola, {userList.sesion.name.split(" ")[0].toUpperCase()}
+						</Typography>
+					</Box>
+					<Box
+						sx={{
+							...actualStyle.item,
+							...actualStyle.backgroundWithBeforeEffect,
+						}}
+					>
+						<Button
+							disableRipple
+							variant="body1"
+							component={RouterLink}
+							to={"/user"}
+							sx={actualStyle.links}
+						>
+							Mi cuenta
+						</Button>
+					</Box>
+					<Box
+						sx={{
+							...actualStyle.item,
+							...actualStyle.backgroundWithBeforeEffect,
+						}}
+					>
+						<Button
+							variant="body1"
+							to={"/register"}
+							disableRipple
+							sx={actualStyle.links}
+							onClick={() => {
+								console.log("Click")
+								UpdateList({do: "CLOSE_SESION"})
+								navigate("/")
+							}}
+						>
+							Cerrar Sesion
+						</Button>
+					</Box>
+				</Box>
 			)}
 		</>
 	)

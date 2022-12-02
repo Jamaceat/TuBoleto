@@ -3,7 +3,8 @@ import Events from "../../Components/Events"
 import {useContext} from "react"
 import {AllData} from "../../Components/Context/ContextProvider"
 import styles from "./Home.module.css"
-
+import Footer from "../../Components/Footer/Footer"
+import {Box} from "@mui/system"
 export default function Home() {
 	console.log(styles.holaa)
 	const {userList} = useContext(AllData)
@@ -11,20 +12,10 @@ export default function Home() {
 
 	return (
 		<>
-			<Events />
-
-			<div>
-				{userList !== undefined &&
-					userList.users.map((x, i) => {
-						return (
-							<div className={styles.contenedorPrueba} key={i}>
-								<p>name: {x.name}</p>
-								<p>password: {x.password}</p>
-								<p>tipo: {x.type}</p>
-							</div>
-						)
-					})}
-			</div>
+			<Box marginBottom={"1rem"}>
+				<Events />
+			</Box>
+			<Footer />
 		</>
 	)
 }

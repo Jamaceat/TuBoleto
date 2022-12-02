@@ -1,4 +1,4 @@
-import {createContext, useReducer, useState} from "react"
+import {createContext, useReducer} from "react"
 import users from "./users.json"
 
 export const AllData = createContext()
@@ -26,16 +26,26 @@ export default function DataProvider({children}) {
 							{name, password, cc, email, type, events: []},
 						],
 					}
-					window.localStorage.setItem("users", JSON.stringify(newState))
+					window.localStorage.setItem("manage", JSON.stringify(newState))
 					return newState
 				} else {
 					let newState = {
 						...state,
 						users: [...state.users, {name, password, cc, email, type}],
 					}
-					window.localStorage.setItem("users", JSON.stringify(newState))
+					window.localStorage.setItem("manage", JSON.stringify(newState))
 					return newState
 				}
+			}
+			case "SESION": {
+				const newState = {...state, sesion: {...action.payload.usuario}}
+				window.localStorage.setItem("manage", JSON.stringify(newState))
+				return newState
+			}
+			case "CLOSE_SESION": {
+				const newState = {...state, sesion: {}}
+				window.localStorage.setItem("manage", JSON.stringify(newState))
+				return newState
 			}
 			default:
 				return state
@@ -45,7 +55,7 @@ export default function DataProvider({children}) {
 	const [userList, UpdateList] = useReducer(userManagement, initUserData)
 
 	const verify = (email, password) => {
-		return [...userList].some(
+		return [...userList.users].some(
 			(x) => x.email === email && x.password === password
 		)
 	}
