@@ -10,7 +10,7 @@ import {
 	Divider,
 	Pagination,
 } from "@mui/material"
-import React, {useState} from "react"
+import React, {useState, ChangeEvent} from "react"
 import CrudItem from "../../Components/CrudItem"
 
 const esquemaEvento = [
@@ -216,6 +216,11 @@ const esquemaEvento = [
 
 export default function EventManager() {
 	const [pages, setpages] = useState(Math.ceil(esquemaEvento.length / 5))
+    const [page, setPage] = useState(1)
+    const handleChange = (event, value) => {
+        setPage(value - 1)
+    }
+
 	return (
 		<Box
 			sx={{
@@ -236,7 +241,7 @@ export default function EventManager() {
 					Crear Evento
 				</Button>
 			</Box>
-			<Pagination count={pages} />
+			<Pagination count={pages} onChange={handleChange} />
 			<Paper elevation={5}>
 				<Box
 					sx={{
@@ -256,7 +261,7 @@ export default function EventManager() {
 					<p className="borde"> URL portada </p>
 					<p style={{textAlign: "center"}}> Options </p>
 				</Box>
-				{esquemaEvento.map((x, i, a) => (
+				{esquemaEvento.slice(page * 5, page * 5 + 5).map((x, i, a) => (
 					<>
 						<CrudItem
 							id={x.id}
