@@ -1,11 +1,11 @@
 import {Paper, Typography, Divider, Stack, Button, Link} from "@mui/material"
 import {Box} from "@mui/system"
 import React, {useContext} from "react"
-import {AllData} from "../Context/ContextProvider"
+import {AllData} from "../../Components/Context/ContextProvider"
 import "./ManageAccount.css"
 import {Link as RouterLink} from "react-router-dom"
 
-export default function ManageAccount() {
+export default function AccountManager() {
 	const {userList} = useContext(AllData)
 
 	return (
@@ -124,7 +124,7 @@ export default function ManageAccount() {
 					<Button
 						variant="contained"
 						component={RouterLink}
-						to={"/user/crud"}
+						to={"/user/evt_manager"}
 						sx={{
 							backgroundColor: "black",
 							"&:hover": {backgroundColor: "#5AB865"},

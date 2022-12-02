@@ -5,8 +5,7 @@ import Home from "./pages/Home"
 import Login from "./pages/Login"
 import Register from "./pages/Register"
 import EventManager from "./pages/EventManager"
-import ManageAccount from "./Components/ManageAccount/"
-import Crud from "./Components/CRUD"
+import AccountManager from "./pages/AccountManager"
 
 function App() {
 	return (
@@ -16,9 +15,8 @@ function App() {
 				<Route path="/" element={<Home />} />
 				<Route path="/login" element={<Login />} />
 				<Route path="/register" element={<Register />} />
-				<Route path="/evt_manager" element={<EventManager />} />
-				<Route path="/user" element={<ManageAccount />} />
-				<Route path="/user/crud" element={<Crud />} />
+				<Route path="/user" element={<AccountManager />} />
+				<Route path="/user/evt_manager" element={<EventManager />} />
 			</Routes>
 		</Router>
 	)
