@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "../../Components/Header";
 import Events from "../../Components/Events";
+import Footer from "../../Components/Footer";
 import {useContext} from "react"
 import {AllData} from "../../Components/Context/ContextProvider"
 import styles from "./Home.module.css"
@@ -28,6 +29,8 @@ export default function Home() {
                         )
                     })}
             </div>
+
+            <Footer />
         </>
     )
 }
