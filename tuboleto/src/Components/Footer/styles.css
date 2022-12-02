@@ -1,0 +1,42 @@
+.footer_box {
+    background-color: #0071CE;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main_grid {
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+}
+
+.main_grid .grid_child {
+    margin: 10px auto;
+}
+
+.email {
+    background-color: white;
+}
+
+.news {
+    margin-top: 20px;
+}
+
+.menu {
+    text-align: center;
+}
+
+.menu p {
+    font-weight: bold;
+}
+
+.menu_list {
+    text-decoration: underline;
+}
+
+.menu_list li {
+    text-align: center;
+    padding: 0px;
+}
