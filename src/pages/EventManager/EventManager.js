@@ -216,10 +216,24 @@ const esquemaEvento = [
 
 export default function EventManager() {
 	const [pages, setpages] = useState(Math.ceil(esquemaEvento.length / 5))
-    const [page, setPage] = useState(1)
-    const handleChange = (event, value) => {
+    const [page, setPage] = useState(0)
+	const [scheme, setScheme] = useState(esquemaEvento)
+    const handlePageChange = (event, value) => {
         setPage(value - 1)
     }
+
+	const handleDataChange = (dict) => {
+		const evt_index = scheme.findIndex(x => x.id === dict.id)
+		let copy = [...scheme]
+		copy[evt_index] = {
+			...copy[evt_index],
+			title: dict.title,
+			date: dict.date,
+			place: dict.place,
+			imgUrl: dict.imgUrl
+		}
+		setScheme(copy) //AQUI
+	}
 
 	return (
 		<Box
@@ -241,7 +255,7 @@ export default function EventManager() {
 					Crear Evento
 				</Button>
 			</Box>
-			<Pagination count={pages} onChange={handleChange} />
+			<Pagination count={pages} onChange={handlePageChange} />
 			<Paper elevation={5}>
 				<Box
 					sx={{
@@ -261,7 +275,7 @@ export default function EventManager() {
 					<p className="borde"> URL portada </p>
 					<p style={{textAlign: "center"}}> Options </p>
 				</Box>
-				{esquemaEvento.slice(page * 5, page * 5 + 5).map((x, i, a) => (
+				{scheme.slice(page * 5, page * 5 + 5).map((x, i, a) => (
 					<>
 						<CrudItem
 							id={x.id}
@@ -269,6 +283,7 @@ export default function EventManager() {
 							date={x.date}
 							place={x.place}
 							imgUrl={x.imgUrl}
+							method={handleDataChange}
 						/>
 						{i < a.length - 1 && <Divider />}
 					</>
